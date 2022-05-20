@@ -1,2 +1,10 @@
-package com.springboot.demo.repository;public interface MemberRepository {
+package com.springboot.demo.repository;
+
+import com.springboot.demo.domain.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    Member findByUserIdAndPassword(String userId, String password);
 }
