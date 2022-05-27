@@ -19,7 +19,7 @@ public class Member {
     @Column
     String name;
 
-    @Column
+    @Column(unique = true)
     String userId;
 
     @Column
