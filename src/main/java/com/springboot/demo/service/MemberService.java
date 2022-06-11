@@ -1,9 +1,7 @@
 package com.springboot.demo.service;
 
-import com.springboot.demo.domain.Member;
+import com.springboot.demo.domain.mamber.Member;
 import com.springboot.demo.repository.MemberRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +16,6 @@ public class MemberService {
     }
 
     public Member find(String loginId, String password){
-        return memberRepository.findByUserIdAndPassword(loginId, password);
+        return memberRepository.findByUsernameAndPassword(loginId, password);
     }
 }

@@ -1,15 +1,12 @@
 package com.springboot.demo.repository;
 
-import com.springboot.demo.domain.Member;
-import org.aspectj.lang.annotation.Before;
-import org.hamcrest.Matchers;
+import com.springboot.demo.domain.mamber.Member;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.hamcrest.Matchers.*;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
@@ -19,7 +16,7 @@ class MemberRepositoryTest {
 
     @BeforeEach
     void createDummyUser(){
-        Member member = Member.builder().name("dummy").userId("dummy").password("dummy123").build();
+        Member member = Member.builder().name("dummy").username("dummy").password("dummy123").build();
         memberRepository.save(member);
     }
 
@@ -39,27 +36,27 @@ class MemberRepositoryTest {
 
     @Test
     void retrieveTest() {
-        Member member = Member.builder().name("hong").userId("test").password("test").build();
+        Member member = Member.builder().name("hong").username("test").password("test").build();
         memberRepository.save(member);
 
-        Member findMember = memberRepository.findByUserIdAndPassword("test", "test");
-        assertThat(findMember.getUserId()).isEqualTo("test");
+        Member findMember = memberRepository.findByUsernameAndPassword("test", "test");
+        assertThat(findMember.getUsername()).isEqualTo("test");
     }
 
     @Test
     void updateTest() {
-        Member findMember = memberRepository.findByUserIdAndPassword("dummy", "dummy123");
-        assertThat(findMember.getUserId()).isEqualTo("dummy");
+        Member findMember = memberRepository.findByUsernameAndPassword("dummy", "dummy123");
+        assertThat(findMember.getUsername()).isEqualTo("dummy");
 
         findMember.setName("new name");
-        Member updateMember = memberRepository.findByUserIdAndPassword("dummy", "dummy123");
+        Member updateMember = memberRepository.findByUsernameAndPassword("dummy", "dummy123");
         assertThat(findMember.getName()).isEqualTo("new name");
     }
 
     @Test
     void deleteTest() {
         Long beforeSize = memberRepository.count();
-        Member findMember = memberRepository.findByUserIdAndPassword("dummy", "dummy123");
+        Member findMember = memberRepository.findByUsernameAndPassword("dummy", "dummy123");
         memberRepository.delete(findMember);
         Long afterSize = memberRepository.count();
         assertThat(beforeSize - 1).isEqualTo(afterSize);

@@ -1,9 +1,7 @@
 package com.springboot.demo.dto;
 
-import com.springboot.demo.domain.Member;
+import com.springboot.demo.domain.mamber.Member;
 import lombok.*;
-
-import javax.persistence.Column;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +15,7 @@ public class MemberDto {
 
     String name;
 
-    String userId;
+    String username;
 
     String password;
 

@@ -1,6 +1,6 @@
 package com.springboot.demo.security.filter;
 
-import com.springboot.demo.security.TokenProvider;
+import com.springboot.demo.config.TokenProvider;
 import io.netty.util.internal.StringUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.annotation.Order;
@@ -31,8 +31,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             String token = parseBearerToken(request);
 
             if(token!=null && !token.equalsIgnoreCase("null")){
-                String userId = tokenProvider.validateAndSetUserId(token);
-                AbstractAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userId, null, AuthorityUtils.NO_AUTHORITIES);
+                String username = tokenProvider.validateAndSetUserName(token);
+                AbstractAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, null, AuthorityUtils.NO_AUTHORITIES);
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails((request)));
                 SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
                 securityContext.setAuthentication(authenticationToken);

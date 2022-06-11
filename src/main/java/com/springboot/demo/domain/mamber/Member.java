@@ -1,5 +1,6 @@
-package com.springboot.demo.domain;
+package com.springboot.demo.domain.mamber;
 
+import com.springboot.demo.domain.mamber.auth.Authority;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,10 +20,15 @@ public class Member {
     @Column
     String name;
 
+    @Column
+    String nickName;
+
     @Column(unique = true)
-    String userId;
+    String username;
 
     @Column
     String password;
 
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
 }
