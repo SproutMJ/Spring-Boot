@@ -9,6 +9,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @Getter
 @NoArgsConstructor
 @Table(name = "refresh_token")

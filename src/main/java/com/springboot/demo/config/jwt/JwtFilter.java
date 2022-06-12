@@ -18,6 +18,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws IOException
+ * @throws ServletException
+ * @version
+ */
 @RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
 

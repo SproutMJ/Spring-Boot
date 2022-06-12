@@ -1,11 +1,8 @@
 package com.springboot.demo.web.controller;
 
-import com.springboot.demo.config.TokenProvider;
-import com.springboot.demo.domain.mamber.Member;
 import com.springboot.demo.domain.response.Response;
 import com.springboot.demo.dto.*;
-import com.springboot.demo.service.AuthService;
-import com.springboot.demo.service.MemberService;
+import com.springboot.demo.service.auth.AuthService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -69,6 +66,20 @@ import static com.springboot.demo.domain.response.Response.success;
 //        }
 //    }
 //}
+
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/auth")

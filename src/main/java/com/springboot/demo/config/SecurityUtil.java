@@ -9,6 +9,20 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Optional;
 
+
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws RuntimeException
+ * @version
+ */
 @Slf4j
 public class SecurityUtil {
 

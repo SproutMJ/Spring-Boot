@@ -15,6 +15,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.filter.CorsFilter;
 
+
+/**
+ * @author
+ * @exception
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws Exception
+ * @version
+ */
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration

@@ -6,6 +6,23 @@ import lombok.*;
 import javax.persistence.*;
 
 
+/**
+ * @author https://github.com/SproutMJ
+ * @exception
+ * @param name
+ * @param nickName
+ * @param username
+ * @param password
+ * @param authority
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @ToString
 @Builder
 @NoArgsConstructor

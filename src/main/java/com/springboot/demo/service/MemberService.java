@@ -5,6 +5,19 @@ import com.springboot.demo.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author https://github.com/SproutMJ
+ * @exception
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws RuntimeException
+ * @version
+ */
 @Service
 @RequiredArgsConstructor
 public class MemberService {

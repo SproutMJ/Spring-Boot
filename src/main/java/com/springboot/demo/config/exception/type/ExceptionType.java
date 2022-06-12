@@ -2,6 +2,36 @@ package com.springboot.demo.config.exception.type;
 
 import lombok.Getter;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception EXCEPTION
+ * @exception AUTHENTICATION_ENTRY_POINT_EXCEPTION
+ * @exception ACCESS_DENIED_EXCEPTION
+ * @exception BIND_EXCEPTION
+ * @exception LOGIN_FAILURE_EXCEPTION
+ * @exception MEMBER_EMAIL_ALREADY_EXISTS_EXCEPTION
+ * @exception MEMBER_NICKNAME_ALREADY_EXISTS_EXCEPTION
+ * @exception MEMBER_NOT_FOUND_EXCEPTION
+ * @exception ROLE_NOT_FOUND_EXCEPTION
+ * @exception MISSING_REQUEST_HEADER_EXCEPTION
+ * @exception CATEGORY_NOT_FOUND_EXCEPTION
+ * @exception CANNOT_CONVERT_NESTED_STRUCTURE_EXCEPTION
+ * @exception POST_NOT_FOUND_EXCEPTION
+ * @exception UNSUPPORTED_IMAGE_FORMAT_EXCEPTION
+ * @exception FILE_UPLOAD_FAILURE_EXCEPTION
+ * @exception COMMENT_NOT_FOUND_EXCEPTION
+ * @exception MESSAGE_NOT_FOUND_EXCEPTION
+ * @exception REFRESH_TOKEN_FAILURE_EXCEPTION
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @Getter
 public enum ExceptionType {
     EXCEPTION("exception.code", "exception.msg"),

@@ -1,4 +1,4 @@
-package com.springboot.demo.service;
+package com.springboot.demo.service.auth;
 
 import com.springboot.demo.config.TokenProvider;
 import com.springboot.demo.config.exception.LoginFailureException;
@@ -20,6 +20,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception LoginFailureException
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws RuntimeException
+ * @version
+ */
 @Service
 @RequiredArgsConstructor
 public class AuthService {

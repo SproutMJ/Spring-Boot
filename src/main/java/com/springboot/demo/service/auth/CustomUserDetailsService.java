@@ -1,4 +1,4 @@
-package com.springboot.demo.config.auth;
+package com.springboot.demo.service.auth;
 
 import com.springboot.demo.domain.mamber.Member;
 import com.springboot.demo.repository.MemberRepository;
@@ -14,6 +14,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception UsernameNotFoundException
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {

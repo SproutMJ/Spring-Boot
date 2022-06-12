@@ -9,6 +9,20 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @Configuration
 // http://localhost:8080/swagger-ui/index.html
 public class SwaggerConfig {

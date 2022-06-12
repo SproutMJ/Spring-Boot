@@ -2,6 +2,22 @@ package com.springboot.demo.dto;
 
 import lombok.*;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param grantType
+ * @param accessToken
+ * @param refreshToken
+ * @param accessTokenExpiresIn
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

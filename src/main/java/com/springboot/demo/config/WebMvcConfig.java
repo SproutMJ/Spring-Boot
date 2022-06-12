@@ -7,6 +7,20 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.time.LocalDate;
 
+
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
     private final Long MAX_AGE_SECS = Long.valueOf(3600);

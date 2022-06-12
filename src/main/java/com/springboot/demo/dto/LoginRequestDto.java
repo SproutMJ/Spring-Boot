@@ -10,6 +10,20 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.NotBlank;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param username
+ * @param password
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

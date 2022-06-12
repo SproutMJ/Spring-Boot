@@ -12,6 +12,23 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.management.relation.RoleNotFoundException;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception IllegalArgumentException
+ * @exception MethodArgumentNotValidException
+ * @exception LoginFailureException
+ * @exception MemberUsernameAlreadyExistsException
+ * @exception MemberNicknameAlreadyExistsException
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @RestControllerAdvice
 public class ExceptionAdvice {
     // 500 에러

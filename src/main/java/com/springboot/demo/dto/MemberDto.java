@@ -3,6 +3,22 @@ package com.springboot.demo.dto;
 import com.springboot.demo.domain.mamber.Member;
 import lombok.*;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param token
+ * @param name
+ * @param username
+ * @param password
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

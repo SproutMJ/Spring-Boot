@@ -9,6 +9,22 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+/**
+ * @author  https://github.com/sosow0212
+ * @exception
+ * @param username
+ * @param password
+ * @param name
+ * @param nickName
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 @ApiModel(value = "회원가입 요청")
 @Data
 @NoArgsConstructor

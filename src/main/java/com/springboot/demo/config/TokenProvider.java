@@ -27,6 +27,25 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
 
+
+/**
+ * @author  https://github.com/sosow0212
+ * @exception SecurityException
+ * @exception MalformedJwtException
+ * @exception ExpiredJwtException
+ * @exception UnsupportedJwtException
+ * @exception IllegalArgumentException
+ * @exception ExpiredJwtException
+ * @param
+ * @return
+ * @see
+ * @serial
+ * @serialData
+ * @serialField
+ * @since
+ * @throws
+ * @version
+ */
 //@Slf4j
 @Setter
 @Component
