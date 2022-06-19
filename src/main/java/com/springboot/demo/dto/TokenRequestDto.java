@@ -1,5 +1,6 @@
 package com.springboot.demo.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
  * @version
  */
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor
 public class TokenRequestDto {
     private String accessToken;

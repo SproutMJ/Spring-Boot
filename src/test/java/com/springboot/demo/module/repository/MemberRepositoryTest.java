@@ -1,6 +1,6 @@
 package com.springboot.demo.module.repository;
 
-import com.springboot.demo.domain.mamber.Member;
+import com.springboot.demo.domain.member.Member;
 import com.springboot.demo.repository.MemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

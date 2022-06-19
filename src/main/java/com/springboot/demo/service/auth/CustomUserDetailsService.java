@@ -1,6 +1,6 @@
 package com.springboot.demo.service.auth;
 
-import com.springboot.demo.domain.mamber.Member;
+import com.springboot.demo.domain.member.Member;
 import com.springboot.demo.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

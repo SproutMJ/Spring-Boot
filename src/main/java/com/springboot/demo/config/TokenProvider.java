@@ -1,14 +1,13 @@
 package com.springboot.demo.config;
 
 
-import com.springboot.demo.domain.mamber.Member;
+import com.springboot.demo.domain.member.Member;
 import com.springboot.demo.dto.TokenDto;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SecurityException;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

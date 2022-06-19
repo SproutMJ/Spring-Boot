@@ -1,11 +1,34 @@
 package com.springboot.demo.function;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.springboot.demo.dto.LoginRequestDto;
+import com.springboot.demo.dto.RegisterDto;
+import com.springboot.demo.dto.TokenDto;
+import com.springboot.demo.dto.TokenRequestDto;
+import com.springboot.demo.service.auth.AuthService;
+import com.springboot.demo.web.controller.AuthController;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 import java.io.*;
 import java.net.*;
@@ -25,11 +48,59 @@ import java.net.*;
  * @throws
  * @version
  */
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class AuthTest {
+    @InjectMocks
+    AuthController authController;
+    @Mock
+    AuthService authService;
+    MockMvc mockMvc;
+    ObjectMapper objectMapper = new ObjectMapper();
+
+    @BeforeEach
+    private void beforeEach(){
+        mockMvc = MockMvcBuilders.standaloneSetup(authController).build();
+    }
+
+    @DisplayName("회원가입 테스트")
+    @Test
+    void signUpTest() throws Exception {
+        // given
+        RegisterDto req = new RegisterDto("test123", "test", "username", "nickname");
+
+        // when, then
+        mockMvc.perform(
+                        post("/auth/api/sign-up")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(req)))
+                .andExpect(status().isCreated());
+
+        verify(authService).signup(req);
+    }
+
+    @DisplayName("로그인 테스트")
+    @Test
+    void signInTest() throws Exception {
+        // given
+        LoginRequestDto req = new LoginRequestDto("test123", "test");
+        given(authService.signIn(req)).willReturn(new TokenDto("access", "refresh"));
+
+        // when, then
+        mockMvc.perform(
+                        post("/api/sign-in")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(objectMapper.writeValueAsString(req)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.result.data.accessToken").value("access"))
+                .andExpect(jsonPath("$.result.data.refreshToken").value("refresh"));
+
+        verify(authService).signIn(req);
+    }
+
 
     @Test
-    public void registerTest() throws IOException {
+    @Deprecated
+    public void registerTestAssert() throws IOException {
         //GIVEN
         //컨넥션 만들기
         URL url = new URL("http://localhost:8080/auth/signup");
@@ -75,8 +146,9 @@ public class AuthTest {
     }
 
     @Test
-    public void loginTest() throws IOException, ParseException {
-        registerTest();
+    @Deprecated
+    public void loginTestAssert() throws IOException, ParseException {
+        registerTestAssert();
         URL url = new URL("http://localhost:8080/auth/signin");
         HttpURLConnection login = (HttpURLConnection) url.openConnection();
 
@@ -130,7 +202,7 @@ public class AuthTest {
     }
 
     @Test
+    @Deprecated
     public void logoutTest(){
-
     }
 }

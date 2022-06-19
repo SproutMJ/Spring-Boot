@@ -1,7 +1,7 @@
 package com.springboot.demo.dto;
 
-import com.springboot.demo.domain.mamber.Member;
-import com.springboot.demo.domain.mamber.auth.Authority;
+import com.springboot.demo.domain.member.Member;
+import com.springboot.demo.domain.member.auth.Authority;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;

@@ -89,14 +89,14 @@ public class AuthController {
 
     @ApiOperation(value = "회원가입", notes = "회원가입 진행")
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/signup")
+    @PostMapping("/api/sign-up")
     public Response register(@Valid @RequestBody RegisterDto registerDto) {
         authService.signup(registerDto);
         return success();
     }
 
     @ApiOperation(value = "로그인", notes = "로그인을 한다.")
-    @PostMapping("/signin")
+    @PostMapping("/api/sign-in")
     @ResponseStatus(HttpStatus.OK)
     public Response signIn(@Valid @RequestBody LoginRequestDto req) {
         return success(authService.signIn(req));

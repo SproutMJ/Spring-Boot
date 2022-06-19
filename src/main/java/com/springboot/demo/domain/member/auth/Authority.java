@@ -1,4 +1,4 @@
-package com.springboot.demo.domain.mamber.auth;
+package com.springboot.demo.domain.member.auth;
 
 
 /**

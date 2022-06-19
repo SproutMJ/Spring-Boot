@@ -1,9 +1,12 @@
-package com.springboot.demo.domain.mamber;
+package com.springboot.demo.domain.member;
 
-import com.springboot.demo.domain.mamber.auth.Authority;
+import com.springboot.demo.domain.board.Board;
+import com.springboot.demo.domain.member.auth.Authority;
+import com.springboot.demo.domain.message.Message;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -29,8 +32,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @Entity
+@Table
 public class Member {
     @Id
+    @Column(name = "MEMBER_ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -46,6 +51,14 @@ public class Member {
     @Column
     String password;
 
+    @JoinColumn
+
     @Enumerated(EnumType.STRING)
     private Authority authority;
+
+    @OneToMany(mappedBy = "member")
+    List<Board> boards;
+
+    @OneToMany(mappedBy = "member")
+    List<Message> messages;
 }

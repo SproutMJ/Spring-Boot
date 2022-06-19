@@ -1,6 +1,6 @@
 package com.springboot.demo.dto;
 
-import com.springboot.demo.domain.mamber.Member;
+import com.springboot.demo.domain.member.Member;
 import lombok.*;
 
 /**
@@ -34,6 +34,8 @@ public class MemberDto {
     String username;
 
     String password;
+
+    String nickName;
 
     public Member toEntity(){
         return null;
