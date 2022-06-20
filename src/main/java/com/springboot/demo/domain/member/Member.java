@@ -51,8 +51,6 @@ public class Member {
     @Column
     String password;
 
-    @JoinColumn
-
     @Enumerated(EnumType.STRING)
     private Authority authority;
 
@@ -61,4 +59,5 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     List<Message> messages;
+
 }

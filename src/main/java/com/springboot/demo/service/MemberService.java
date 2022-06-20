@@ -41,7 +41,7 @@ public class MemberService {
         return memberRepository.findByUsernameAndPassword(loginId, password);
     }
 
-    public Optional<Member> find(long id) {
+    public Optional<Member> find(Long id) {
         return memberRepository.findById(id);
     }
 
@@ -49,16 +49,15 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public void updateUser(long id, MemberDto updateMemberInfoDto) {
+    public void updateUser(Long id, MemberDto updateMemberInfoDto) {
         Optional<Member> beforeInfo = memberRepository.findById(id);
         beforeInfo.get().setName(updateMemberInfoDto.getName());
         beforeInfo.get().setUsername(updateMemberInfoDto.getUsername());
         beforeInfo.get().setNickName(updateMemberInfoDto.getNickName());
         beforeInfo.get().setPassword(updateMemberInfoDto.getPassword());
-
     }
 
-    public void deleteUser(long id) {
+    public void deleteUser(Long id) {
         memberRepository.delete(memberRepository.findById(id).get());
     }
 

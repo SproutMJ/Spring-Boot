@@ -65,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
 
-                    .antMatchers("/", "/auth/**").permitAll() // 이건 그냥 누구나 접근 가능
+                    .antMatchers("/", "/api/auth/**").permitAll() // 이건 그냥 누구나 접근 가능
 
                     .antMatchers("/boards/**")
                     .access("hasRole('ROLE_USER') or hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')")

@@ -17,36 +17,38 @@ public class UserController {
 
     @ApiOperation(value = "전체 회원 조회", notes = "전체 회원 조회")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("users")
+    @GetMapping("/users")
     public Response findAllUsers(){
         return Response.success(memberService.findAll());
     }
 
     @ApiOperation(value ="개별 회원 조회", notes = "개별 회원 조회")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("users/{id}")
-    public Response findUsers(@ApiParam(value = "User ID", required = true) @PathVariable long id){
+    @GetMapping("/users/{id}")
+    public Response findUsers(@ApiParam(value = "User ID", required = true) @PathVariable Long id){
         return Response.success(memberService.find(id));
     }
 
     @ApiOperation(value ="개별 회원 수정", notes = "개별 회원 수정")
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping("users/{id}")
-    public Response updateUser(@ApiParam(value = "User ID", required = true) @PathVariable long id, @RequestBody MemberDto updateMemberInfoDto){
+    @PutMapping("/users/{id}")
+    public Response updateUser(@ApiParam(value = "User ID", required = true) @PathVariable Long id, @RequestBody MemberDto updateMemberInfoDto){
+        memberService.updateUser(id, updateMemberInfoDto);
         return Response.success();
     }
 
     @ApiOperation(value ="개별 회원 탈퇴", notes = "개별 회원 탈퇴")
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping("users/{id}")
-    public Response deleteUser(@ApiParam(value = "User ID", required = true) @PathVariable long id){
+    @DeleteMapping("/users/{id}")
+    public Response deleteUser(@ApiParam(value = "User ID", required = true) @PathVariable Long id){
+        memberService.deleteUser(id);
         return Response.success();
     }
 
     @ApiOperation(value ="개별 회원 즐겨찾기 조회", notes = "개별 회원 즐겨찾기 조회")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("users/{id}/favorites")
-    public Response findUserFavorites(@ApiParam(value = "User ID", required = true) @PathVariable long id){
+    @GetMapping("/users/{id}/favorites")
+    public Response findUserFavorites(@ApiParam(value = "User ID", required = true) @PathVariable Long id){
         return Response.success(memberService.findUserFavorites(id));
     }
 
