@@ -2,36 +2,43 @@ package com.springboot.demo.domain.message;
 
 import com.springboot.demo.domain.board.sendtype.SendType;
 import com.springboot.demo.domain.member.Member;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 
 
+@Builder
 @Data
 @Entity
 @Table
 public class Message {
     @Id
     @Column(name = "MESSAGE_ID")
-    Long id;
+    private Long id;
 
     @Column
-    String title;
+    private String title;
 
     @Column
-    String text;
-
-    @Enumerated(EnumType.STRING)
-    SendType sendType;
+    private String text;
 
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
-    Member member;
+    private Member sender;
 
-    public void setMember(Member member){
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
+    private Member receiver;
+
+    public Message() {
+
+    }
+
+    /*public void setMember(Member member){
         this.member = member;
 
         if(!member.getMessages().contains(member))
             member.getMessages().add(this);
-    }
+    }*/
 }
