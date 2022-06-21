@@ -26,22 +26,20 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @RestController
-public class messageController {
+public class MessageController {
     private final MessageService messageService;
 
     @ApiOperation(value = "쪽지 보내기", notes = "쪽지 보내기")
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/messages")
-    public Response sendMessage(@ApiParam(value = "보내는 유저",required = true) @RequestBody MemberDto sender,
-                                @ApiParam(value = "받는 유저",required = true) @RequestBody MemberDto receiver,
-                                @ApiParam(value = "보내는 유저",required = true) @RequestBody MessageDto messageDto){
-        messageService.sendMessage(sender, receiver, messageDto);
+    public Response sendMessage( @ApiParam(value = "메시지",required = true) @RequestBody MessageDto messageDto){
+        messageService.sendMessage(messageDto);
         return Response.success();
     }
 
     @ApiOperation(value = "받은 쪽지", notes = "받은 쪽지")
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/api/messages/receiver")
+    @GetMapping("/messages/receiver")
     public Response receivedMessageAll(){
         return Response.success(messageService.receivedMessage());
     }
@@ -70,7 +68,7 @@ public class messageController {
 
     @ApiOperation(value = "보낸 쪽지 확인", notes = "보낸 쪽지 확인")
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping("/messages/sender/{messageId}")
+    @GetMapping("/messages/sender/{messageId}")
     public Response sendMessageOne(@ApiParam(value = "메시지 ID",required = true) @PathVariable Long messageId){
         return Response.success(messageService.sendedMessage(messageId));
     }

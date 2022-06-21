@@ -31,10 +31,10 @@ public class MessageService {
     private final MessageRepository messageRepository;
 
 
-    public void sendMessage(MemberDto sender, MemberDto receiver, MessageDto messageDto) {
+    public void sendMessage(MessageDto messageDto) {
         Message message = Message.builder()
-                .sender(sender.toEntity())
-                .receiver(receiver.toEntity())
+                .sender(messageDto.getSender().toEntity())
+                .receiver(messageDto.getReceiver().toEntity())
                 .title(messageDto.getTitle())
                 .text(messageDto.getText()).build();
 
@@ -42,12 +42,13 @@ public class MessageService {
     }
 
     public List<MessageDto> receivedMessage() {
-        return (List<MessageDto>) messageRepository.findAll().stream().map(m->new MessageDto(m.getTitle(), m.getText()));
+        return (List<MessageDto>) messageRepository.findAll().stream().map(m->
+                MessageDto.builder().title(m.getTitle()).text(m.getText()).build());
     }
 
     public MessageDto receivedMessage(Long messageId) {
         Message message = messageRepository.findById(messageId).get();
-        return new MessageDto(message.getTitle(), message.getText());
+        return MessageDto.builder().title(message.getTitle()).text(message.getText()).build();
     }
 
     public void deleteReceivedMessage(Long messageId) {
@@ -56,12 +57,13 @@ public class MessageService {
     }
 
     public List<MessageDto> sendedMessage() {
-        return (List<MessageDto>) messageRepository.findAll().stream().map(m->new MessageDto(m.getTitle(), m.getText()));
+        return (List<MessageDto>) messageRepository.findAll().stream().map(m->
+                MessageDto.builder().title(m.getTitle()).text(m.getText()).build());
     }
 
     public MessageDto sendedMessage(Long messageId) {
         Message message = messageRepository.findById(messageId).get();
-        return new MessageDto(message.getTitle(), message.getText());
+        return MessageDto.builder().title(message.getTitle()).text(message.getText()).build();
     }
 
     public void deleteSendedMessage(Long messageId) {

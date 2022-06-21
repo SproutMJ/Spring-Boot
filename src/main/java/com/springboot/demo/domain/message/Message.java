@@ -1,15 +1,14 @@
 package com.springboot.demo.domain.message;
 
-import com.springboot.demo.domain.board.sendtype.SendType;
 import com.springboot.demo.domain.member.Member;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 
 
+@Getter
+@AllArgsConstructor
 @Builder
-@Data
 @Entity
 @Table
 public class Message {
