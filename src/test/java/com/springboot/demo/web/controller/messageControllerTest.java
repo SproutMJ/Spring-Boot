@@ -59,7 +59,7 @@ class MessageControllerTest {
         //given
 
         //when then
-        mockMvc.perform(get("/api//messages/receiver")
+        mockMvc.perform(get("/api/messages/receiver")
         ).andExpect(status().isOk());
 
         verify(messageService).receivedMessage();
@@ -71,7 +71,7 @@ class MessageControllerTest {
         Long testId = 1L;
 
         //when then
-        mockMvc.perform(get("/api//messages/receiver/{messageId}", testId)
+        mockMvc.perform(get("/api/messages/receiver/{messageId}", testId)
         ).andExpect(status().isOk());
 
         verify(messageService).receivedMessage(testId);
@@ -83,7 +83,7 @@ class MessageControllerTest {
         Long testId = 1L;
 
         //when then
-        mockMvc.perform(delete("/api//messages/receiver/{messageId}", testId)
+        mockMvc.perform(delete("/api/messages/receiver/{messageId}", testId)
         ).andExpect(status().isOk());
 
         verify(messageService).deleteReceivedMessage(testId);
@@ -94,7 +94,7 @@ class MessageControllerTest {
         //given
 
         //when then
-        mockMvc.perform(get("/api//messages/sender")
+        mockMvc.perform(get("/api/messages/sender")
         ).andExpect(status().isOk());
 
         verify(messageService).sendedMessage();

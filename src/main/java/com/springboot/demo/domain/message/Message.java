@@ -2,6 +2,8 @@ package com.springboot.demo.domain.message;
 
 import com.springboot.demo.domain.member.Member;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -22,12 +24,14 @@ public class Message {
     @Column
     private String text;
 
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @ManyToOne
-    @JoinColumn(name = "MEMBER_ID")
+    @JoinColumn(name = "SENDER_ID")
     private Member sender;
 
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
     @ManyToOne
-    @JoinColumn(name = "MEMBER_ID")
+    @JoinColumn(name = "RECEIVER_ID")
     private Member receiver;
 
     public Message() {

@@ -57,10 +57,6 @@ public class Member {
     @OneToMany(mappedBy = "member")
     List<Board> boards;
 
-    @OneToMany(mappedBy = "member")
-    List<Message> receivedMessages;
 
-    @OneToMany(mappedBy = "member")
-    List<Message> sendedMessages;
 
 }
