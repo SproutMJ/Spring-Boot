@@ -27,6 +27,7 @@ class MessageControllerTest {
     @InjectMocks
     MessageController messageController;
 
+
     @Mock
     MessageService messageService;
 
@@ -52,11 +53,13 @@ class MessageControllerTest {
                 ).andExpect(status().isOk());
 
         verify(messageService).sendMessage(message);
+
     }
 
     @Test
     void receivedMessageAll() throws Exception {
         //given
+
 
         //when then
         mockMvc.perform(get("/api/messages/receiver")

@@ -26,8 +26,8 @@ import java.util.Optional;
  */
 
 @Transactional
-@Service
 @RequiredArgsConstructor
+@Service
 public class MemberService {
     private final MemberRepository memberRepository;
 

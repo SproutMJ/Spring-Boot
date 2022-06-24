@@ -1,13 +1,15 @@
 package com.springboot.demo.domain.board;
 
 import com.springboot.demo.domain.member.Member;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 
-
-@Data
+@RequiredArgsConstructor
+@Builder
+@Getter
+@Setter
 @Entity
 @Table
 public class Board {
@@ -17,17 +19,18 @@ public class Board {
     private Long id;
 
     @Column
-    private Long author;
-
-    @Column
     private String title;
 
+    @Column
+    private Long like;
+
     @Lob
-    String text;
+    private String text;
 
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
-    Member member;
+    private Member member;
+
 
     public void setMember(Member member){
         this.member = member;
