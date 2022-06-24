@@ -57,13 +57,13 @@ public class BoardController {
     @ApiOperation(value = "게시글 검색", notes = "게시글 검색")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/boards/search")
-    public Response searchBoards(@ApiParam(value = "글제목", required = true) @RequestParam String title){
+    public Response searchBoards(@ApiParam(value = "글제목", required = true) @RequestParam("title") String title){
         return Response.success(boardService.findByTitle(title));
     }
     
     @ApiOperation(value = "좋아요 처리", notes = "좋아요 처리")
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping("/boards/{id}")
+    @PostMapping("/boards/{id}/like")
     public Response like(@ApiParam(value = "글번호", required = true) @PathVariable Long id){
         boardService.likeBoard(id);
         return Response.success();

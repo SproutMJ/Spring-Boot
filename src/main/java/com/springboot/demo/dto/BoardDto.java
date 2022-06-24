@@ -3,9 +3,11 @@ package com.springboot.demo.dto;
 import lombok.*;
 import org.springframework.stereotype.Service;
 
-
-@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
+@Getter
+@Setter
 public class BoardDto {
     private String title;
     private String text;

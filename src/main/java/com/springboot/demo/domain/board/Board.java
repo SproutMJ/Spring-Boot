@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 
+@AllArgsConstructor
 @RequiredArgsConstructor
 @Builder
 @Getter
@@ -32,10 +33,10 @@ public class Board {
     private Member member;
 
 
-    public void setMember(Member member){
-        this.member = member;
-
-        if(!member.getBoards().contains(member))
-            member.getBoards().add(this);
-    }
+//    public void setMember(Member member){
+//        this.member = member;
+//
+//        if(!member.getBoards().contains(member))
+//            member.getBoards().add(this);
+//    }
 }
