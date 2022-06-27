@@ -53,10 +53,4 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     private Authority authority;
-
-    @OneToMany(mappedBy = "member")
-    List<Board> boards;
-
-
-
 }
