@@ -12,6 +12,6 @@ public class MemberReportDto {
     private Long id;
     private String title;
     private String reason;
-    private Member Reporter;
+    private Member reporter;
     private Member accusedPerson;
 }

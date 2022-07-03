@@ -32,7 +32,7 @@ public class Report {
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @ManyToOne
     @JoinColumn(name = "REPORTER_ID")
-    private Member Reporter;
+    private Member reporter;
 
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @ManyToOne
