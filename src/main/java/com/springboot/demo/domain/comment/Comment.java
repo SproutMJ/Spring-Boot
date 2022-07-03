@@ -27,12 +27,12 @@ public class Comment {
     private String comment;
 
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BOARD_ID")
     private Board board;
 
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 }

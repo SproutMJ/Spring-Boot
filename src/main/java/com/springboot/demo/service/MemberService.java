@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author https://github.com/SproutMJ
@@ -45,8 +46,14 @@ public class MemberService {
         return memberRepository.findById(id);
     }
 
-    public List<Member> findAll() {
-        return memberRepository.findAll();
+    public List<MemberDto> findAll() {
+        return memberRepository.findAll().stream().map(
+                m->MemberDto.builder()
+                        .name(m.getName())
+                        .username(m.getUsername())
+                        .nickName(m.getNickName())
+                        .build()
+        ).collect(Collectors.toList());
     }
 
     public void updateUser(Long id, MemberDto updateMemberInfoDto) {

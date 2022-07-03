@@ -17,6 +17,12 @@ Database
     ~~MySQL~~
     ~~Redis~~
 
+Architecture
+    Layered Architecture
+        ~~Domain Model Pattern~~
+    ~~Clean Architecture~~
+    ~~Hexagonal Architecture~~
+
 Maintenance
     Javadoc
     ~~Log~~
