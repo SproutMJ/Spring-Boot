@@ -14,6 +14,8 @@ public class BoardReportDto {
     private Long id;
     private String title;
     private String reason;
+
+    //이하 dto로 고쳐야됨 아니면 ID로
     private Member reporter;
     private Member accusedPerson;
     private Board accusedBoard;

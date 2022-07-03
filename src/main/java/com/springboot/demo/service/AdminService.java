@@ -36,7 +36,7 @@ public class AdminService {
                         .id(r.getId())
                         .title(r.getTitle())
                         .reason(r.getReason())
-                        .Reporter(r.getReporter())
+                        .reporter(r.getReporter())
                         .accusedPerson(r.getAccusedPerson())
                         .build())
                 .collect(Collectors.toList());
@@ -50,7 +50,7 @@ public class AdminService {
                         .id(r.getId())
                         .title(r.getTitle())
                         .reason(r.getReason())
-                        .Reporter(r.getReporter())
+                        .reporter(r.getReporter())
                         .accusedPerson(r.getAccusedPerson())
                         .accusedBoard(r.getAccusedBoard())
                         .build())
