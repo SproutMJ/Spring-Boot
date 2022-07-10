@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * @author https://github.com/SproutMJ
  * @exception
@@ -32,7 +34,7 @@ public class MessageController {
     @ApiOperation(value = "쪽지 보내기", notes = "쪽지 보내기")
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/messages")
-    public Response sendMessage( @ApiParam(value = "메시지",required = true) @RequestBody MessageDto messageDto){
+    public Response sendMessage( @ApiParam(value = "메시지",required = true) @Valid @RequestBody MessageDto messageDto){
         messageService.sendMessage(messageDto);
         return Response.success();
     }

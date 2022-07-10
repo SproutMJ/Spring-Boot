@@ -3,6 +3,8 @@ package com.springboot.demo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author  https://github.com/sosow0212
  * @exception
@@ -19,5 +21,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class SignInResponseDto {
+    @NotNull
     private String accessToken;
 }

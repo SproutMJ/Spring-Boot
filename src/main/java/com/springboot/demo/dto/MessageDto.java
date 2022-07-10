@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author  https://github.com/SproutMJ
  * @exception
@@ -26,8 +28,12 @@ import lombok.NoArgsConstructor;
 @Data
 @ApiModel(value = "메시지 보내기")
 public class MessageDto {
+    @NotNull
     private MemberDto sender;
+    @NotNull
     private MemberDto receiver;
+    @NotNull
     private String title;
+    @NotNull
     private String text;
 }

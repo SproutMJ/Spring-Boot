@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author  https://github.com/sosow0212
  * @exception
@@ -22,6 +24,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TokenRequestDto {
+    @NotNull
     private String accessToken;
+    @NotNull
     private String refreshToken;
 }

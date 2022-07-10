@@ -2,6 +2,8 @@ package com.springboot.demo.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author  https://github.com/sosow0212
  * @exception
@@ -24,9 +26,13 @@ import lombok.*;
 @Builder
 public class TokenDto {
 
+    @NotNull
     private String grantType;
+    @NotNull
     private String accessToken;
+    @NotNull
     private String refreshToken;
+    @NotNull
     private Long accessTokenExpiresIn;
 
     public TokenDto(String access, String refresh) {

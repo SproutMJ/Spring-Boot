@@ -4,6 +4,8 @@ import com.springboot.demo.domain.board.Board;
 import com.springboot.demo.domain.member.Member;
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,8 +13,11 @@ import lombok.*;
 @Getter
 @Setter
 public class BoardReportDto {
+    @NotNull
     private Long id;
+    @NotNull
     private String title;
+    @NotNull
     private String reason;
 
     //이하 dto로 고쳐야됨 아니면 ID로

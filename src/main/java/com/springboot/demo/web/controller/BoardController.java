@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @RestController
@@ -25,7 +27,7 @@ public class BoardController {
     @ApiOperation(value = "게시물 작성", notes = "게시물 작성")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/boards")
-    public Response createBoard(@ApiParam(value = "게시글", required = true) @RequestBody BoardDto boardDto){
+    public Response createBoard(@ApiParam(value = "게시글", required = true) @Valid @RequestBody BoardDto boardDto){
         boardService.createBoard(boardDto);
         return Response.success();
     }
@@ -41,7 +43,7 @@ public class BoardController {
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/boards/{id}")
     public Response updateBoard(@ApiParam(value = "글번호", required = true) @PathVariable Long id
-            , @ApiParam(value = "업데이트 게시글", required = true) @RequestBody BoardDto updateBoardDto){
+            , @ApiParam(value = "업데이트 게시글", required = true) @Valid @RequestBody BoardDto updateBoardDto){
         boardService.updateBoard(id, updateBoardDto);
         return Response.success();
     }

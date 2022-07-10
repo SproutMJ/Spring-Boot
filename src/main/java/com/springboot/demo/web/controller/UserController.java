@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @RestController
@@ -32,7 +34,7 @@ public class UserController {
     @ApiOperation(value ="개별 회원 수정", notes = "개별 회원 수정")
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/users/{id}")
-    public Response updateUser(@ApiParam(value = "User ID", required = true) @PathVariable Long id, @RequestBody MemberDto updateMemberInfoDto){
+    public Response updateUser(@ApiParam(value = "User ID", required = true) @PathVariable Long id, @Valid @RequestBody MemberDto updateMemberInfoDto){
         memberService.updateUser(id, updateMemberInfoDto);
         return Response.success();
     }

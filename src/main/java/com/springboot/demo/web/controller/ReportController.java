@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RequiredArgsConstructor
 @RequestMapping("/api/reports")
 @RestController
@@ -21,7 +23,7 @@ public class ReportController {
     @ApiOperation(value = "게시물 신고", notes = "게시물 신고")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/boards")
-    public Response reportBoard(@ApiParam(value = "게시글 신고", required = true) @RequestBody BoardReportDto boardReportDto){
+    public Response reportBoard(@ApiParam(value = "게시글 신고", required = true) @Valid @RequestBody BoardReportDto boardReportDto){
         reportService.reportBoard(boardReportDto);
         return Response.success();
     }
@@ -29,7 +31,7 @@ public class ReportController {
     @ApiOperation(value = "유저 신고", notes = "유저 신고")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/users")
-    public Response reportUser(@ApiParam(value = "유저 신고", required = true) @RequestBody MemberReportDto memberReportDto){
+    public Response reportUser(@ApiParam(value = "유저 신고", required = true) @Valid @RequestBody MemberReportDto memberReportDto){
         reportService.reportUser(memberReportDto);
         return Response.success();
     }
