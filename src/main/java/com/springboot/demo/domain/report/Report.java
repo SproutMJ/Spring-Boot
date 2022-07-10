@@ -30,17 +30,17 @@ public class Report {
     private String reason;
 
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REPORTER_ID")
     private Member reporter;
 
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACCUSED_PERSON_ID")
     private Member accusedPerson;
 
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ACCUSED_BOARD_ID")
     private Board accusedBoard;
 }

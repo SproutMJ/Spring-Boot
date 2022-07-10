@@ -25,12 +25,12 @@ public class Message {
     private String text;
 
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SENDER_ID")
     private Member sender;
 
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RECEIVER_ID")
     private Member receiver;
 
