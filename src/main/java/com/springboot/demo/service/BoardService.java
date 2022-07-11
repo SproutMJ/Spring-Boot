@@ -7,12 +7,16 @@ import com.springboot.demo.dto.BoardDto;
 import com.springboot.demo.repository.BoardRepository;
 import com.springboot.demo.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Transactional
@@ -54,9 +58,10 @@ public class BoardService {
         boardRepository.delete(board);
     }
 
-    public BoardDto findByTitle(String title) {
-        Board board = boardRepository.findByTitle(title).get();
-        return BoardDto.builder().title(board.getTitle()).text(board.getText()).like(board.getLike()).build();
+    public List<BoardDto> findByTitle(String title, Long page) {
+        Page<Board> pages = boardRepository.findByTitle(title, PageRequest.of(Math.toIntExact(page), 10, Sort.by(Sort.Direction.DESC, "title")));
+        List<Board> boards = pages.getContent();
+        return boards.stream().map(b->BoardDto.builder().title(b.getTitle()).text(b.getText()).like(b.getLike()).build()).collect(Collectors.toList());
     }
 
     public void likeBoard(Long id) {

@@ -99,12 +99,14 @@ class BoardControllerTest {
     @Test
     void searchBoards() throws Exception {
         String title = "test";
+        Long page = Long.valueOf(2);
 
         mockMvc.perform(get("/api/boards/search")
-                        .param("title", title))
+                        .param("title", title)
+                        .param("page", String.valueOf(page)))
                 .andExpect(status().isOk());
 
-        verify(boardService).findByTitle(refEq(title));
+        verify(boardService).findByTitle(refEq(title), refEq(page));
     }
 
     @Test

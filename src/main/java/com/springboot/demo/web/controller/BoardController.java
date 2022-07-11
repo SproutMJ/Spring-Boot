@@ -59,8 +59,9 @@ public class BoardController {
     @ApiOperation(value = "게시글 검색", notes = "게시글 검색")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/boards/search")
-    public Response searchBoards(@ApiParam(value = "글제목", required = true) @RequestParam("title") String title){
-        return Response.success(boardService.findByTitle(title));
+    public Response searchBoards(@ApiParam(value = "글제목", required = true) @RequestParam("title") String title,
+                                 @ApiParam(value = "페이지 번호", required = false)  @RequestParam("page") Long page){
+        return Response.success(boardService.findByTitle(title, page));
     }
     
     @ApiOperation(value = "좋아요 처리", notes = "좋아요 처리")
