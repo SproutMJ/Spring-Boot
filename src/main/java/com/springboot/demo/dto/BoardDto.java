@@ -1,5 +1,6 @@
 package com.springboot.demo.dto;
 
+import com.springboot.demo.domain.category.Category;
 import lombok.*;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +16,7 @@ public class BoardDto {
     private String title;
     @NotNull
     private String text;
+    @NotNull
+    private Category category;
     private Long like;
 }

@@ -1,5 +1,6 @@
 package com.springboot.demo.domain.board;
 
+import com.springboot.demo.domain.category.Category;
 import com.springboot.demo.domain.member.Member;
 import lombok.*;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,10 @@ public class Board {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CATEGORY_ID")
+    private Category category;
 
 
 //    public void setMember(Member member){
